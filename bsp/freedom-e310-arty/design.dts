@@ -44,6 +44,10 @@
                 #clock-cells = <1>;
                 compatible = "sifive,freedom-e310-arty";
                 ranges;
+		pmp: pmp@0 {
+			compatible = "riscv,pmp";
+			regions = <1>;
+		};
 
                 hfclk: clock@0 {
                         #clock-cells = <0>;

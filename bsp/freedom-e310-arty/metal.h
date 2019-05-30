@@ -74,6 +74,9 @@ struct __metal_driver_riscv_cpu_intc __metal_dt_interrupt_controller;
 asm (".weak __metal_dt_interrupt_controller_c000000");
 struct __metal_driver_riscv_plic0 __metal_dt_interrupt_controller_c000000;
 
+asm (".weak __metal_dt_pmp_0");
+struct metal_pmp __metal_dt_pmp_0;
+
 /* From local_external_interrupts_0 */
 asm (".weak __metal_dt_local_external_interrupts_0");
 struct __metal_driver_sifive_local_external_interrupts0 __metal_dt_local_external_interrupts_0;
@@ -140,6 +143,11 @@ struct __metal_driver_riscv_plic0 __metal_dt_interrupt_controller_c000000 = {
     .max_priority = 7UL,
     .num_interrupts = 27UL,
     .interrupt_controller = 1,
+};
+
+/* From pmp@0 */
+struct metal_pmp __metal_dt_pmp_0 = {
+    .num_regions = 1UL,
 };
 
 /* From local_external_interrupts_0 */
@@ -256,6 +264,9 @@ struct __metal_driver_cpu *__metal_cpu_table[] = {
 #define __METAL_DT_RISCV_PLIC0_HANDLE (&__metal_dt_interrupt_controller_c000000.controller)
 
 #define __METAL_DT_INTERRUPT_CONTROLLER_C000000_HANDLE (&__metal_dt_interrupt_controller_c000000.controller)
+
+/* From pmp@0 */
+#define __METAL_DT_PMP_HANDLE (&__metal_dt_pmp_0)
 
 /* From local_external_interrupts_0 */
 #define __METAL_DT_SIFIVE_LOCAL_EXINTR0_HANDLE (&__metal_dt_local_external_interrupts_0.irc)

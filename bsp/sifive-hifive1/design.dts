@@ -43,6 +43,10 @@
                 #clock-cells = <1>;
                 compatible = "sifive,hifive1";
                 ranges;
+		pmp: pmp@0 {
+			compatible = "riscv,pmp";
+			regions = <1>;
+		};
 
                 hfxoscin: clock@0 {
                         #clock-cells = <0>;
